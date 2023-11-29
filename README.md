@@ -1,7 +1,7 @@
 # photoframe
 Adjust photo resolution and orientation to fit a photoframe
 
-== Background ==
+## Background
 My household recently came into possession of two [Motion Video Frames](https://www.wordsinmotionco.com/products/motion-video-frame), digital photo frames sold by [Words in Motion](https://www.wordsinmotionco.com/). They are 854x480px LCD screens with 2GB memory accessible via a USB micro B port, alllowing easy upload from a computer, and they can display files of the following types:
 * MP4
 * AVI
@@ -17,15 +17,15 @@ So far, I have found they suffer from two main problems:
 
 These problems can be solved manually, one file at a time, but it is tedious to do so. [ImageMagick](https://imagemagick.org/index.php) is a sophisticated tool that allows one to batch conversion work.
 
-== OS ==
+## OS
 This is a bash script. I have tested and use it under Cygwin on Windows; it ought to work without too many changes on real Linux systems, MinGW, etc.
 
-== Prerequisites ==
+## Prerequisites
 * bash shell
 * [ImageMagick](https://imagemagick.org/index.php) must be in the path
 * The script fix-photos.sh must be in the path, and executable
 
-== Use ==
+## Use
 ```bash
 fix-photos.sh landscape|portrait source-image-directory [[--rotate [[rotation-angle]] ]]
 ```
@@ -34,21 +34,21 @@ where
 2. The second position parameter is the directory containing the images to convert. **Note** that the converted images will be placed in a sub-directory of the current directory named "out".
 3. An optional argument, --rotate, with an optional rotation-angle indicating that the output image should be rotated by the given angle (in degrees). If no rotation-angle is specified, the image is rotated by 90 degrees.
 
-== Use cases ==
+## Use cases
 All of the uses cases below assume that the set of images to convert are in a sub-directory of the current directory named "in".
-=== Converting from portrait images to landscape images ===
+### Converting from portrait images to landscape images
 ```bash
 fix-photos.sh landscape in --rotate
 ```
-=== Converting from landscape images to landscape images ===
+### Converting from landscape images to landscape images
 ```bash
 fix-photos.sh landscape in
 ```
-=== Converting from landscape images to portrait images ===
+### Converting from landscape images to portrait images
 ```bash
 fix-photos.sh portrait in --rotate
 ```
-=== Converting from portrait images to portrait images ===
+### Converting from portrait images to portrait images
 ```bash
 fix-photos.sh portrait in
 ```
