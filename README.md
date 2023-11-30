@@ -53,7 +53,7 @@ fix-photos.sh portrait in --rotate
 fix-photos.sh portrait in
 ```
 
-== Tips ==
+## Tips
 1. It can be convenient to segregate images needing rotation from those which don't by putting them in separate direcotries, e.g. "in-no-rotate" and "in-rotate", and then convert them like:
 ```bash
 fix-photos.sh portrait in-no-rotate
