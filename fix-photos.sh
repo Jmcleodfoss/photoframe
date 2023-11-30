@@ -6,7 +6,29 @@ declare -r long_resolution_px=854
 declare -r short_resolution_px=480
 
 # Check for valid arguments
-if [[ $# -lt 2 ]] || ( [[ "$1" != "landscape" ]] && [[ "$1" != "portrait" ]] ) || [[ ! -d "$2" ]] || ( [[ $# -gt 3 ]] && [[ "$3" != "--rotate" ]] ) || [[ $# -gt 4 ]]; then
+declare show_error_and_exit=false
+if [[ $# -lt 2 ]]; then
+	echo "Too few arguments were provided"
+	show_error_and_exit=true
+fi
+if ( [[ "$1" != "landscape" ]] && [[ "$1" != "portrait" ]] ); then
+	echo "The first argument was not recognized"
+	show_error_and_exit=true
+fi
+if [[ ! -d "$2" ]] then
+	echo "The second argument must be a directory"
+	show_error_and_exit=true
+fi
+if ( [[ $# -gt 3 ]] && [[ "$3" != "--rotate" ]] ); then
+	echo "The third argument, if present, must be --rotate"
+	show_error_and_exit=true
+fi
+if [[ $# -gt 4 ]]; then
+	echo "Too many arguments were provided"
+	show_error_and_exit=true
+fi
+
+if [[ show_error_and_exit == true ]]; then
 	cat <<-EOT
 	Use:
 	        $0 landscape source-directory [--rotate [angle]]
