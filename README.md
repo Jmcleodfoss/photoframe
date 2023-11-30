@@ -11,9 +11,10 @@ My household recently came into possession of two [Motion Video Frames](https://
 * BMP
 * PMG
 
-So far, I have found they suffer from two main problems:
+So far, I have found they suffer from three main problems:
 1. They automatically stretch / squeeze images to fit the current resolution (854x480 px when placed horizontally / in landscape more, 480x854px when placed vertically / in portrait mode). This leads to extremely ugly display for images whose resolution is not the same ratio (1:1.90 / 1.90:1).
 2. They cannot display images stored in using Apple's High Efficiency File Format (HEIC)
+3. They waste a huge amount of memory letting you store MB-sized photos when it only needs about 400K / inage.
 
 These problems can be solved manually, one file at a time, but it is tedious to do so. [ImageMagick](https://imagemagick.org/index.php) is a sophisticated tool that allows one to batch conversion work.
 
